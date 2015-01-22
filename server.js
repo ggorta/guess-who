@@ -28,11 +28,4 @@ app.get('/:name', function(req, res) {
     }
 
 });
-
-//app.get('/', function(req, res) {
-//on /:ANYTHINGELSE serves {msg: "hmm, try again"}
-
-//});
-
 app.listen(3000);
-//host this on your DO box at port 3000.

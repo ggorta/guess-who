@@ -1,51 +1,26 @@
 require 'httparty'
 #prompts the user for the ip address of another student
 puts "IP address, please."
-input = gets.chomp
+input1 = gets.chomp
 #then uses httparty to hit the route / at that ip address
 
-url = "http://#{input}:3000/"
-response = HTTParty.get(url)
+url1 = "http://#{input1}:3000/"
+response1 = HTTParty.get(url1)
 
-get '/' do
-person = response["results"][0]
-  person_json = {
-    profession: person['profession'],
-    known_for1: person['known_for'][0],
-    known_for2: person['known_for'][1],
-    known_for3: person['known_for'][2],
-    gender: person['gender'],
-    age: person['age'],
-    fact1: person['fact1'],
-    fact2: person['fact1']
-  }
-  content.type :json
-  person_json.to_json
-end
-
-puts person_json
+puts response1
 
 puts "Which celebrity might this be?"
 
-answer = gets.chomp.downcase
+input2 = gets.chomp.downcase
 
-#get '/:answer' do
+url2 = "http://#{input1}:3000/#{input2}"
+response2 = HTTParty.get(url2)
 
-
-
-
-
+puts response2.value
 
 
 
 
-
-
-
-
-#then prints to the terminal the response from that route
-#then prints Which celebrity might this be? and waits for the user
-#to take a guess
 #then takes the guess from the user and hits the same ip address
 #at the route /CELEB_GUESS
 #if NICE JOB is the value of msg in the JSON returned, print that
