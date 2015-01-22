@@ -1,8 +1,3 @@
-
-
-
-
-
 var express = require ('express')
 var app = express();
 
@@ -24,10 +19,12 @@ app.get('/:name', function(req, res) {
   //on /CELEBNAME serves {correct: "NICE JOB!"}
   var name = req.params.name;
   if (name === "stephen_king"){
-    res.json("correct");
+    ymsg = {correct: "NICE JOB!"}
+    res.json(ymsg);
   }
     else {
-    res.json("incorrect");
+      nmsg = {incorrect: "hmm, try again"}
+    res.json(nmsg);
     }
 
 });
